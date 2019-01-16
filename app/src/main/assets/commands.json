@@ -1,0 +1,78 @@
+[
+  {
+    "cmd": "takeoff",
+    "desc": "Auto takeoff."
+  },
+  {
+    "cmd": "land",
+    "desc": "Auto landing."
+  },
+  {
+    "cmd": "steamon",
+    "desc": "Enable video stream."
+  },
+  {
+    "cmd": "streamoff",
+    "desc": "Disable video stream."
+  },
+  {
+    "cmd": "up",
+    "desc": "Ascend to \"x\" cm.x=20-500",
+    "ext": true,
+    "min": 20,
+    "max": 500
+  },
+  {
+    "cmd": "down",
+    "desc": "Descend to \"x\" cm.x=20-500",
+    "ext": true,
+    "min": 20,
+    "max": 500
+  },
+  {
+    "cmd": "left",
+    "desc": "Fly left for \"x\" cm.x=20-500",
+    "ext": true,
+    "min": 20,
+    "max": 500
+  },
+  {
+    "cmd": "right",
+    "desc": "Fly right for \"x\" cm.x=20-500",
+    "ext": true,
+    "min": 20,
+    "max": 500
+  },
+  {
+    "cmd": "forward",
+    "desc": "Fly forward for \"x\" cm.x=20-500",
+    "ext": true,
+    "min": 20,
+    "max": 500
+  },
+  {
+    "cmd": "back",
+    "desc": "Fly back for \"x\" cm.x=20-500",
+    "ext": true,
+    "min": 20,
+    "max": 500
+  },
+  {
+    "cmd": "cw",
+    "desc": "Rotate \"x\" degrees clockwise \"x\" = 1-360",
+    "ext": true,
+    "min": 20,
+    "max": 500
+  },
+  {
+    "cmd": "ccw",
+    "desc": "Rotate \"x\" degrees counterclockwise \"x\" = 1-360",
+    "ext": true,
+    "min": 20,
+    "max": 500
+  },
+  {
+    "cmd": "stop",
+    "desc": "Hovers in the air."
+  }
+]

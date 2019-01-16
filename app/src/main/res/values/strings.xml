@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TelloTaskController</string>
+    <string name="no_connection">无连接</string>
+    <string name="status_of_tello">Tello状态</string>
+    <string name="now_task_list_of_tello">现在的任务</string>
+    <string name="add_task">添加任务</string>
+    <string name="not_task">无任务</string>
+    <string name="command">命令</string>
+    <string name="description">介绍</string>
+    <string name="add">加入</string>
+    <string name="cancel">取消</string>
+</resources>
