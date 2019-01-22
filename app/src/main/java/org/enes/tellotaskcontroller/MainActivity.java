@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 
 import org.enes.tellotaskcontroller.adapters.NewTaskAdapter;
 import org.enes.tellotaskcontroller.adapters.StatusAdapter;
@@ -24,9 +25,7 @@ import org.enes.tellotaskcontroller.objects.CreateTaskObject;
 import org.enes.tellotaskcontroller.objects.Task;
 import org.enes.tellotaskcontroller.threads.StatusReceiveThread;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NewTaskAdapter.NewTaskPressedListener,
         DialogInterface.OnClickListener {
@@ -97,13 +96,13 @@ public class MainActivity extends AppCompatActivity implements NewTaskAdapter.Ne
 
     private RecyclerView recyclerViewTasks;
 
-    private List<Task> taskList;
-
     private TaskAdapter taskAdapter;
 
     private RecyclerView recyclerViewNewTasks;
 
     private NewTaskAdapter newTaskAdapter;
+
+    private TextView tv_no_task;
 
     private void initView() {
         // set first adapter
@@ -115,8 +114,7 @@ public class MainActivity extends AppCompatActivity implements NewTaskAdapter.Ne
         // set second adapter
         recyclerViewTasks = findViewById(R.id.recyclerViewTasks);
         recyclerViewTasks.setLayoutManager(new LinearLayoutManager(recyclerViewTasks.getContext()));
-        taskList = new ArrayList<>();
-        taskAdapter = new TaskAdapter(this,taskList);
+        taskAdapter = new TaskAdapter(this,MyApplication.taskList());
         recyclerViewTasks.setAdapter(taskAdapter);
         // set
         recyclerViewNewTasks = findViewById(R.id.recyclerViewNewTasks);
@@ -124,7 +122,8 @@ public class MainActivity extends AppCompatActivity implements NewTaskAdapter.Ne
         newTaskAdapter = new NewTaskAdapter(this,MyApplication.getInstance().getCommandList());
         recyclerViewNewTasks.setAdapter(newTaskAdapter);
         newTaskAdapter.setNewTaskPressedListener(this);
-
+        //
+        tv_no_task = findViewById(R.id.tv_no_task);
         ll_no_connection = findViewById(R.id.ll_no_connection);
 //        ll_no_connection.setOnClickListener(null);
     }
@@ -142,7 +141,17 @@ public class MainActivity extends AppCompatActivity implements NewTaskAdapter.Ne
     }
 
     private void addTaskToUI() {
+        // TODO test
         taskAdapter.notifyDataSetChanged();
+        if(MyApplication.getInstance().getCommandList().size() > 0) {
+            if(tv_no_task.getVisibility() != View.GONE) {
+                tv_no_task.setVisibility(View.GONE);
+            }
+        }else {
+            if(tv_no_task.getVisibility() != View.VISIBLE) {
+                tv_no_task.setVisibility(View.VISIBLE);
+            }
+        }
         updateUICommon();
     }
 
